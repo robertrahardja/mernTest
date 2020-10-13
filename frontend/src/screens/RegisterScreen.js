@@ -4,11 +4,11 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message.js'
 import Loader from '../components/Loader.js'
-import {register} from '../actions/userActions.js'
+import { register } from '../actions/userActions.js'
 import FormContainer from '../components/FormContainer.js'
 
-const RegisterScreen = ({ location, history}) => {
-const [name, setName] = useState('')
+const RegisterScreen = ({ location, history }) => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -29,7 +29,7 @@ const [name, setName] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if(password !== confirmPassword){
+    if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else {
       dispatch(register(name, email, password))
@@ -43,7 +43,7 @@ const [name, setName] = useState('')
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-      <Form.Group controlId='name'>
+        <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
           <Form.Control
             type='name'
